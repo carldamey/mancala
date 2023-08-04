@@ -1,0 +1,87 @@
+•begin the game by putting 4 stones into each pocket
+•each player can only interact with stones on their half of the board (separated horizontally)
+•each player owns the mancala to the right of their row
+•on a player's turn, they select one pocket within their control
+	•the selected pocket has all of its stones removed, and one is deposited into each
+	subsequent pocket moving counter-clockwise until there are no stones left.
+		•the current player's mancala is treated as a space that must be deposited into
+		•you skip depositing into your opponent's mancala
+	•if the last stone dropped in a turn is into a player's mancala, they take another turn
+	•if the last stone dropped is into an empty pocket in the current player's control, that
+	stone, along with all stones in the pocket opposite of it (opponent's control), are deposited
+	into the current player's mancala
+•when all six spaces in either player's control are empty, all remaining stones on the opposing player's side
+are deposited into their (opposing player) mancala and the game ends, whichever player has the most pieces in
+their mancala wins
+
+
+
+
+
+initialize game by putting 4 stones in each pocket, no winner, current player is 1
+
+
+
+while there is no winner {
+	
+	if a pocket is clicked,
+	if it is a pocket within the current player's control,
+	and the value of that pocket is > 0,
+	begin the turn sequence with that pocket.
+	
+	during the turn sequence:
+	
+		the selected pocket adds 1 to the next x pockets, x being the number of stones currently in it.
+		if the current pocket index is the one before the current player's mancala, the next stone is deposited
+		there, before continuing to deposit into the pocket array.
+		
+		if the selected pocket was x spaces from the current player's mancala, x being the amount of stones in the pocket selected,
+		alternate the player (the player will alternate again at the end of the turn sequence, allowing the current player to have
+		another turn)
+		
+		if the selected pocket was x spaces away from an empty pocket in the current player's control, x being the amount of stones
+		in the selected pocket, that piece is moved into the current player's mancala, along with any opponent pieces opposite it
+		(this will not conflict with the possibility of the player alternating in the above paragraph, as these two edge cases will 
+		never happen in the same turn)
+		
+		allow the player to select any pocket on their half with any amount of stones > 0 currently in it
+		the selected pocket then increases the next x pockets stone count by 1, with x being the number of
+		 stones in the selected pocket, including their mancala, and excluding the opponent's mancala
+
+		if the final deposit on a turn is into the current player's mancala (x stones in selected pocket 
+		was x spaces away from your mancala), that player begins another turn (player *= -1, so that when 
+		that is called at the end of the turn handler, it alternates back to the current player)
+		
+		if the final deposit on a turn is into an empty pocket within that player's half of the board, that 
+		player captures that stone, along with any across from it, on the opponent's side, are captured into 
+		the current player's mancala (find a unique way to identify each pocket in data, as all pockets will likely
+		be in the same array)
+		
+		if all of either player's pockets contain no values greater than 0,
+		the opposing player's pockets' values are added to that players mancala, those pockets are now 0 in value too
+		if either player's mancala value is higher, that player becomes the winner
+		if both players' mancala values are equal, the winner becomes a tie value
+		
+		alternate the current player
+	
+	
+		if a winner has been determined, display the winner or tie message in the center header, both player's scores, and a reset button
+		otherwise, render the numbers in each pocket based on the current board state data, and display the current player in the center header
+	
+	
+} <- while loop ends when a winner is determined
+	
+(probably just use one array for pockets and allow each player to only interact with half of the indeces, this seems easier to make the stones loop around the board
+maybe an array filled with objects with a name value for their position and a stones value for the amount of stones currently in them.
+
+
+
+
+
+extra polish stuff if there's time:
+
+title screen
+sound
+button with link to a rules page, or screen with them written out
+scoreboard for multiple games in one session
+selectable player colors
