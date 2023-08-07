@@ -24,23 +24,49 @@ function init() {
 }
 
 function checkPocket(pocket) {
-    // console.log(pocket.id[pocket.id.length - 1]) this will check which pocket
     if (pocket.id[0] === player.toString()[0]){
-        /* I hope this doesn't violate MVC principles by checking the html data rather than js. I figured this looks a lot cleaner than
-        checking each player against each half of the board index, which is the only other method I can think of currently within my skillset.
-        If this is serious bad practice, brace yourself, I'm about to do it again. */
-        console.log(pocket.innerText)
-        handleTurn(pocket)
+
+                //remove checking id for checking board index #
+
+        let pocketIdx = 0
+        if (player === -1) pocketIdx += 6
+        pocketIdx += Number(pocket.id[pocket.id.length -1])
+        console.log(pocketIdx)
+        handleTurn(pocketIdx)
+
+
+        if (board[pocketIdx] > 0) handleTurn(pocketIdx)
     }
 }
 
-function handleTurn(pocket) {
-    let pocketIdx = 0
-    if (player === -1) pocketIdx += 6
-    pocketIdx += Number(pocket.id[pocket.id.length -1])
+function handleTurn(pocketIdx) {
+    // check for end state, if all pockets in board array are equal to 0
+    // check for winner and tie
+    let i = 0
+    const selectedPocket = pocketIdx
+    while (board[selectedPocket] > 0) {
+        i ++
+        board[selectedPocket] --
+        if (pocketIdx + i === 12) {pocketIdx = 0; i = 0}
+        //deposit into player 2s mancala
+        console.log(`pocketidx + i = ${pocketIdx + i}`)
+        board[pocketIdx + i] ++
+        console.log(board)
+        //add mancala stopping for player
+        //if stone selected was the same amount of stones it contained from the mancala, player *= 1 again to take another turn
+        //if player selects an invalid piece, his turn is still used
+    }
     player *= -1
+    render()
 }
 
 function render() {
+    for (let pockets in pocketsEl) {
+        //update all pocket values with their data, index will have to be reversed back into element id
+    }
+
+    // if winner, update text accordingly
+    // show scores
+    // show play again button
     return
 }

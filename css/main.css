@@ -10,19 +10,31 @@
     justify-content: center;
     background-color: burlywood;
     align-items: center;
+    margin: 50% 10%;
+    border-radius: 7%;
+    height: 50%;
+    width: 80%;
 }
 
 button {
     color: black;
     border-radius: 50%;
-    size: 3vmin;
-    padding: 4vmin;
-    margin: 1vmin;
-    font-size: 2.5vmin;
-    width: 14%;
-    height: 14%;
+    size: 8%;
+    padding: 2%;
+    margin: 4%;
+    font-size: 1500%;
+    background-color: gray;
+    border-width: 33px;
+    
 }
 
 h1{
     display: block;
 }
+
+/* make flexbox centered
+give pockets colors of players
+gradients everywhere
+add color scheme
+buttons fixed size and position
+hover highlight over valid pieces*/
