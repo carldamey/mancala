@@ -3,13 +3,13 @@
     background-color: antiquewhite;
 }
 
-#p1Pockets {
+#pockets {
     display: flex;
-}
-
-#p2Pockets {
-    display: flex;
-    flex-direction: row-reverse;
+    position: absolute;
+    flex-flow: wrap-reverse;
+    justify-content: center;
+    background-color: burlywood;
+    align-items: center;
 }
 
 button {
@@ -18,5 +18,11 @@ button {
     size: 3vmin;
     padding: 4vmin;
     margin: 1vmin;
-    font-size: 5vmin;
+    font-size: 2.5vmin;
+    width: 14%;
+    height: 14%;
+}
+
+h1{
+    display: block;
 }
