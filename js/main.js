@@ -61,12 +61,24 @@ function handleTurn(pocketIdx) {
 }
 
 function render() {
-    for (let pockets in pocketsEl) {
+
+    let i = 0
+    board.forEach(pocket => {
+        if (i < 6) {
+            console.log(pocket)
+            document.getElementById(`1/${i}`).innerText = pocket
+        } else {
+            document.getElementById(`-1/${i-6}`).innerText = pocket
+        }
+        i++
+        //button id 1/i == board[i]
+
+        //two for loops one for starting with positive and one for starting with negative
+
         //update all pocket values with their data, index will have to be reversed back into element id
-    }
+    })
 
     // if winner, update text accordingly
     // show scores
     // show play again button
-    return
 }
