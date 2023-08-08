@@ -4,32 +4,39 @@
 }
 
 #pockets {
-    display: flex;
-    position: absolute;
-    flex-flow: wrap-reverse;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     background-color: burlywood;
-    align-items: center;
-    margin: 50% 10%;
-    border-radius: 7%;
-    height: 50%;
-    width: 80%;
+    border-width: 3px;
+    border-color: black;
+    /* width: 80%; */
+    height: 20%;
+    grid-template-columns: 2fr repeat(6, 1fr) 2fr;
+    grid-template-rows: repeat(1, 1fr);
 }
 
 button {
     color: black;
     border-radius: 50%;
-    size: 8%;
-    padding: 2%;
-    margin: 4%;
     font-size: 1500%;
     background-color: gray;
     border-width: 33px;
     
 }
 
-h1{
-    display: block;
+#p1Mancala {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: span 2;
+}
+
+#p2Mancala {
+    grid-column-start: 8;
+    grid-column-end: 8;
+    grid-row-start: 1;
+    grid-row-end: span 2;
 }
 
 /* make flexbox centered
@@ -37,4 +44,5 @@ give pockets colors of players
 gradients everywhere
 add color scheme
 buttons fixed size and position
+font & fallback font
 hover highlight over valid pieces*/
