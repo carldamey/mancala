@@ -26,19 +26,30 @@ button {
     
 }
 
-#p1Mancala {
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 1;
-    grid-row-end: span 2;
+.p1 {
+    background-color:deeppink;
 }
 
-#p2Mancala {
+.p2 {
+    background-color: aqua;
+}
+
+#p1Mancala {
     grid-column-start: 8;
     grid-column-end: 8;
     grid-row-start: 1;
     grid-row-end: span 2;
 }
+
+#p2Mancala {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: span 2;
+    
+}
+
+
 
 /* make flexbox centered
 give pockets colors of players
@@ -46,4 +57,5 @@ gradients everywhere
 add color scheme
 buttons fixed size and position
 font & fallback font
-hover highlight over valid pieces*/
+hover highlight over valid pieces
+wooden bg?*/
