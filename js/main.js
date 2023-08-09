@@ -12,6 +12,7 @@ let winner, player, board, mancalas
 const pocketsEl = document.getElementById("pockets")
 const p1MancalaEl = document.getElementById("p1Mancala")
 const p2MancalaEl = document.getElementById("p2Mancala")
+const headerEl = document.querySelector("h1")
 
 /*----- event listeners -----*/
 pocketsEl.addEventListener("click", (evt) => checkPocket(evt.target))
@@ -42,6 +43,10 @@ function handleTurn(pocketIdx) {
     let i = 0
     const selectedPocket = pocketIdx
 
+    
+
+
+
     while (board[selectedPocket] > 0) {
         i++
         if (pocketIdx + i === 12) {
@@ -61,6 +66,17 @@ function handleTurn(pocketIdx) {
             board[pocketIdx + i] ++
         }
     }
+    const p1Pockets = board.slice(0, 6)
+    const p2Pockets = board.slice(6)
+
+    if (p1Pockets.every((pocket) => pocket === 0) || p1Pockets.every((pocket) => pocket === 0)) {
+        console.log("end game")
+        //turn this into a function
+    }
+
+    console.log(p1Pockets)
+    console.log(p2Pockets)
+
     player *= -1
     render()
     //maybe move render to while loop when it's time for delay animations
@@ -85,30 +101,11 @@ function render() {
     p1MancalaEl.innerText = mancalas[0]
     p2MancalaEl.innerText = mancalas[1]
 
+    if (player === 1) {headerEl.innerText = "RED'S TURN"}
+    else headerEl.innerText = "BLUE'S TURN"
+
 
     // if winner, update text accordingly
     // show scores
     // show play again button
 }
-
-
-// while (board[selectedPocket] > 0) {    //while the amount of stones in the pocket you selected is above zero
-//     i ++                               //increase the dropping distance from your selected pocket by 1
-//     if (pocketIdx + i === 12) {        //if you hit 12, 1 above the final array index
-//         pocketIdx = 0                   //loop back to 0
-//         i = 0                           //your distance from zero is now zero
-//         if (player === -1) {            // if this is player 2
-//             board[selectedPocket] --     //subtract one from your pocket
-//             mancalas[1] ++              //and add it to player 2's mancala
-//         }
-//     } 
-//     if (pocketIdx + i !== 12 && board[selectedPocket] > 0){                            //if you are not at 12,
-//         board[selectedPocket] --        //subtract one from your selected pocket
-//     } board[pocketIdx + i] ++           //increase the next pocket by 1
-
-//     //add mancala stopping for player
-//     //if stone selected was the same amount of stones it contained from the mancala, player *= 1 again to take another turn
-// }
-// player *= -1
-// render()
-// }
