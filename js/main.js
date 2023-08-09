@@ -6,7 +6,7 @@ const COLORS = {
 }
 
 /*----- state variables -----*/
-let winner, player, board, mancalas
+let winner, player, board, mancalas, p1Pockets, p2Pockets
 
 /*----- cached elements  -----*/
 const pocketsEl = document.getElementById("pockets")
@@ -32,7 +32,6 @@ function checkPocket(pocket) {
         let pocketIdx = 0
         if (player === -1) pocketIdx += 6
         pocketIdx += Number(pocket.id[pocket.id.length -1])
-        console.log(pocketIdx)
         if (board[pocketIdx] > 0) handleTurn(pocketIdx)
     }
 }
@@ -66,16 +65,12 @@ function handleTurn(pocketIdx) {
             board[pocketIdx + i] ++
         }
     }
-    const p1Pockets = board.slice(0, 6)
-    const p2Pockets = board.slice(6)
+    p1Pockets = board.slice(0, 6)
+    p2Pockets = board.slice(6)
 
     if (p1Pockets.every((pocket) => pocket === 0) || p1Pockets.every((pocket) => pocket === 0)) {
-        console.log("end game")
-        //turn this into a function
+        endGame()
     }
-
-    console.log(p1Pockets)
-    console.log(p2Pockets)
 
     player *= -1
     render()
@@ -88,24 +83,51 @@ function handleTurn(pocketIdx) {
     
 
 function render() {
-    let i = 0
-    board.forEach(pocket => {
-        if (i < 6) {
-            console.log(pocket)
-            document.getElementById(`1/${i}`).innerText = pocket
-        } else {
-            document.getElementById(`-1/${i-6}`).innerText = pocket
-        }
-        i++
-    })
     p1MancalaEl.innerText = mancalas[0]
     p2MancalaEl.innerText = mancalas[1]
+    if (!winner) {
+        let i = 0
+        board.forEach(pocket => {
+            if (i < 6) {
+                document.getElementById(`1/${i}`).innerText = pocket
+            } else {
+                document.getElementById(`-1/${i-6}`).innerText = pocket
+            }
+            i++
+        })
 
-    if (player === 1) {headerEl.innerText = "RED'S TURN"}
-    else headerEl.innerText = "BLUE'S TURN"
+        if (player === 1) {headerEl.innerText = "RED'S TURN"}
+        else headerEl.innerText = "BLUE'S TURN"
+    } else {
+        console.log("render recognizes winner")
+        if (winner === 1) {
+            headerEl.innerText =  "RED WINS"
+        } else if (winner === -1) {
+            headerEl.innerText = "BLUE WINS"
+        } else if (winner === 2) {
+            headerEl.innerText = "TIE"
+        }
+        //display both scores in some neat fashion
+    }
 
 
     // if winner, update text accordingly
     // show scores
     // show play again button
+}
+
+function endGame() {
+    console.log("endgame function triggered")
+    mancalas[0] += p1Pockets.reduce((a, b) => a+b)
+    mancalas[1] += p2Pockets.reduce((a, b) => a+b)
+    if (mancalas[0] > mancalas[1]) {
+        winner = 1
+        console.log("winner func player 1")
+    } else if (mancalas[1] > mancalas [0]) {
+        winner = -1
+        console.log("winner func player 2")
+    } else if (mancalas[0] === mancalas[1]) {
+        winner = 2
+        console.log("winner func tie")
+    }
 }
