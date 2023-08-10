@@ -4,6 +4,7 @@ const COLORS = {
     "1": "red",
     "1": "blue",
 }
+//is this necessary?
 
 /*----- state variables -----*/
 let winner, player, board, mancalas, p1Pockets, p2Pockets
@@ -43,8 +44,6 @@ function checkPocket(pocket) {
 }
 
 function handleTurn(pocketIdx) {
-    // check for end state, if all pockets in either half of board array are equal to 0, maybe split list and then do an every iterator?
-    // check for winner and tie
     let i = 0
     const selectedPocket = pocketIdx
     while (board[selectedPocket] > 0) {
@@ -72,10 +71,25 @@ function handleTurn(pocketIdx) {
             board[selectedPocket] --
             board[pocketIdx + i] ++
         }
+
+        if (board[selectedPocket] === 0 && board[pocketIdx + i] === 1) {
+            // if the current pocket index is above 5, and you're player 2, subtract five and take from the first array
+            // else if the current pocket index is below five, and you're player 1 take from the second array
+            // check the math on whether you can simply take your current index from the reversed array, then translate that to the board?
+            console.log(`current pocket is idx # ${pocketIdx + i}`)
+            if (player === 1 && pocketIdx + i <= 5) {
+                mancalas[0] += board[11 - (pocketIdx + i)]
+                board[11 - (pocketIdx + i)] = 0
+            } else if (player === -1 && pocketIdx + i >= 6) {
+                mancalas[1] += board[11 - (pocketIdx + i)]
+                board[11 - (pocketIdx + i)] = 0
+            }
+            
+        }
+    
     }
     p1Pockets = board.slice(0, 6)
     p2Pockets = board.slice(6)
-
     if (p1Pockets.every((pocket) => pocket === 0) || p2Pockets.every((pocket) => pocket === 0)) {
         endGame()
     }
@@ -85,7 +99,6 @@ function handleTurn(pocketIdx) {
     //maybe move render to while loop when it's time for delay animations
 }
 
-    //check distance from mancala first, if a match, change the sequence to always stop at the mancala, then alternate the player
 
     
     
@@ -117,11 +130,6 @@ function render() {
         //display both scores in some neat fashion, maybe replace the pockets with it and include the replay button at the bottom of it
         restartButtonEl.style.visibility = "visible"
     }
-
-
-    // if winner, update text accordingly
-    // show scores
-    // show play again button
 }
 
 function endGame() {
@@ -135,3 +143,5 @@ function endGame() {
         winner = 2
     }
 }
+
+//figure out why score can still be changed in weird ways when continuting to press buttons after the game ends
