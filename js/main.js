@@ -145,3 +145,4 @@ function endGame() {
 }
 
 //figure out why score can still be changed in weird ways when continuting to press buttons after the game ends
+// disable all html buttons starting w - if player 1, and vice versa
