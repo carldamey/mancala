@@ -64,10 +64,6 @@ function handleTurn(pocketIdx) {
         }
 
         if (board[selectedPocket] === 0 && board[pocketIdx + i] === 1) {
-            // if the current pocket index is above 5, and you're player 2, subtract five and take from the first array
-            // else if the current pocket index is below five, and you're player 1 take from the second array
-            // check the math on whether you can simply take your current index from the reversed array, then translate that to the board?
-            console.log(`current pocket is idx # ${pocketIdx + i}`)
             if (player === 1 && pocketIdx + i <= 5) {
                 mancalas[0] += board[11 - (pocketIdx + i)]
                 board[11 - (pocketIdx + i)] = 0
@@ -95,34 +91,35 @@ function handleTurn(pocketIdx) {
 function render() {
     p1MancalaEl.innerText = mancalas[0]
     p2MancalaEl.innerText = mancalas[1]
-    if (!winner) {
-        let i = 0
-        board.forEach(pocket => {
-            if (i < 6) {
-                document.getElementById(`1/${i}`).innerText = pocket
-            } else {
-                document.getElementById(`-1/${i-6}`).innerText = pocket
-            }
-            i++
+    //remove the winner condition as this should render on endgame
+   
+    let i = 0
+    board.forEach(pocket => {
+        if (i < 6) {
+            document.getElementById(`1/${i}`).innerText = pocket
+        } else {
+            document.getElementById(`-1/${i-6}`).innerText = pocket
+        }
+        i++
         })
         if (player === 1) {headerEl.innerText = "RED'S TURN"}
         else headerEl.innerText = "BLUE'S TURN"
-    } else {
-        if (winner === 1) {
-            headerEl.innerText =  "RED WINS"
-        } else if (winner === -1) {
-            headerEl.innerText = "BLUE WINS"
-        } else if (winner === 2) {
-            headerEl.innerText = "TIE"
+        if (winner) {
+            restartButtonEl.style.visibility = "visible"
+            if (winner === 1) {
+                headerEl.innerText =  "RED WINS"
+            } else if (winner === -1) {
+                headerEl.innerText = "BLUE WINS"
+            } else if (winner === 2) {
+                headerEl.innerText = "TIE"
+            }
         }
-        //display both scores in some neat fashion, maybe replace the pockets with it and include the replay button at the bottom of it
-        restartButtonEl.style.visibility = "visible"
     }
-}
 
 function endGame() {
     mancalas[0] += p1Pockets.reduce((a, b) => a+b)
     mancalas[1] += p2Pockets.reduce((a, b) => a+b)
+    board = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     if (mancalas[0] > mancalas[1]) {
         winner = 1
     } else if (mancalas[1] > mancalas [0]) {

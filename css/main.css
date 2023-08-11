@@ -21,11 +21,13 @@ h1 {
     text-align: center;
     font-size: 9vmin;
     background-color: transparent;
+    margin: 0;
+    vertical-align: text-top;
 }
 
 #pockets {
     display: grid;
-    margin-top: 6%;
+    margin-top: 4%;
     /* grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(2, 1fr); */
     background-color: #bc7748;
@@ -34,24 +36,22 @@ h1 {
     width: 90%;
     height: 50%;
     grid-template-columns: 2fr repeat(6, 1fr) 2fr;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: 1fr, .5fr, 1fr;
     border-radius: 14%;
-    border: 1vmin solid #bc7748;
+    border: 1vmin solid #87512e;
     padding: 5vmin;
-    max-width: 100%;
 }
-/* make the header in the center then have it span across the whole middle row */
+
 button {
     color: black;
     border-radius: 50%;
-    font-size: 10vmin;
+    font-size: 5vw;
     background-color: gray;
     border-width: 1vmin;
-    margin: 2vmin;
+    margin: auto;
     font-family: 'Nunito', sans-serif;
-    width: 15vmin;
-    height: 15vmin;
-    /* convert as much as possible to percentages */
+    width: 85%;
+    height: 85%;
 }
 
 button:hover {
@@ -88,13 +88,21 @@ button:hover {
     height: 60vmin;
 }
 
+#restart {
+    border-radius: 20%;
+    padding: 1vmin;
+    width: auto;
+    height: auto;
+    margin: 1vmin;
+    background-color: #bc7748;
+    background-image: radial-gradient(#a96b42, #e29867);
+    border: 1vmin solid #87512e;
+    color: #343434;
+}
+
 
 
 /* make flexbox centered
-give pockets colors of players
-gradients everywhere
-add color scheme
-buttons fixed size and position
-font & fallback font
+add color schemes
 hover highlight over valid pieces
 wooden bg?*/
