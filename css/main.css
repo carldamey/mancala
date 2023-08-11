@@ -22,14 +22,15 @@ h1 {
     font-size: 9vmin;
     background-color: transparent;
     margin: 0;
+    margin-top: 4vmin;
     vertical-align: text-top;
+    -webkit-text-stroke-color: #343434;
+    text-shadow: .5vmin .5vmin #343434;
 }
 
 #pockets {
     display: grid;
     margin-top: 4%;
-    /* grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(2, 1fr); */
     background-color: #bc7748;
     background-image: radial-gradient(#bc7748, #e29867);
     border-color: black;
@@ -43,10 +44,9 @@ h1 {
 }
 
 button {
-    color: black;
+    color: #343434 ;
     border-radius: 50%;
     font-size: 5vw;
-    background-color: gray;
     border-width: 1vmin;
     margin: auto;
     font-family: 'Nunito', sans-serif;
@@ -95,14 +95,13 @@ button:hover {
     height: auto;
     margin: 1vmin;
     background-color: #bc7748;
-    background-image: radial-gradient(#a96b42, #e29867);
+    background-image: radial-gradient(#bc7748, #e29867);
     border: 1vmin solid #87512e;
     color: #343434;
 }
 
-
-
-/* make flexbox centered
-add color schemes
-hover highlight over valid pieces
-wooden bg?*/
+#restart:hover {
+    border-color: #663a1d;
+    background-color: #905b37;
+    background-image: radial-gradient(#7e5031, #a7714c);
+}

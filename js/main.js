@@ -55,7 +55,6 @@ function handleTurn(pocketIdx) {
                 mancalas[0] ++
                 if (board[selectedPocket] === 0) {
                     player *= -1
-                    // add feedback displaying extra turn, maybe highlight your mancala and fade 
                 }
         }
         if (board[selectedPocket] > 0) {
@@ -81,18 +80,11 @@ function handleTurn(pocketIdx) {
 
     player *= -1
     render()
-    //maybe move render to while loop when it's time for delay animations
 }
-
-
-    
-    
 
 function render() {
     p1MancalaEl.innerText = mancalas[0]
     p2MancalaEl.innerText = mancalas[1]
-    //remove the winner condition as this should render on endgame
-   
     let i = 0
     board.forEach(pocket => {
         if (i < 6) {
@@ -102,16 +94,25 @@ function render() {
         }
         i++
         })
-        if (player === 1) {headerEl.innerText = "RED'S TURN"}
-        else headerEl.innerText = "BLUE'S TURN"
+        if (player === 1) {
+            headerEl.innerText = "RED'S TURN"
+            headerEl.style.color = "#ec4141"
+        }
+        else {
+            headerEl.innerText = "BLUE'S TURN"
+            headerEl.style.color = "#a5c0de"
+        }
         if (winner) {
             restartButtonEl.style.visibility = "visible"
             if (winner === 1) {
-                headerEl.innerText =  "RED WINS"
+                headerEl.innerText =  "RED WINS!"
+                headerEl.style.color = "#ec4141"
             } else if (winner === -1) {
-                headerEl.innerText = "BLUE WINS"
+                headerEl.innerText = "BLUE WINS!"
+                headerEl.style.color = "#a5c0de"
             } else if (winner === 2) {
                 headerEl.innerText = "TIE"
+                headerEl.style.color = "#ffffff"
             }
         }
     }
@@ -128,6 +129,3 @@ function endGame() {
         winner = 2
     }
 }
-
-//figure out why score can still be changed in weird ways when continuting to press buttons after the game ends
-// disable all html buttons starting w - if player 1, and vice versa
