@@ -3,8 +3,12 @@
 
 This is my submission for the first of four end of unit projects at General Assembly, a browser game.
 
+https://carldamey.github.io/mancala/
+
 
 ## Screenshots
+
+![Screenshots](/screenshots/screenshots.png)
 
 
 ## Technologies Used 
