@@ -1,12 +1,17 @@
 * {
     box-sizing: border-box;
-    background-color: antiquewhite;
 }
 
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'Nunito', sans-serif;
+    background-color: #2d7c41;
+    background-image: radial-gradient(#14331b, #5dfc85);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
 }
 
 h1 {
@@ -15,39 +20,54 @@ h1 {
     grid-column-end: span 6;
     text-align: center;
     font-size: 9vmin;
+    background-color: transparent;
 }
 
 #pockets {
     display: grid;
+    margin-top: 6%;
     /* grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(2, 1fr); */
-    background-color: burlywood;
-    border-width: 3px;
+    background-color: #bc7748;
+    background-image: radial-gradient(#bc7748, #e29867);
     border-color: black;
-    width: 80%;
+    width: 90%;
     height: 50%;
     grid-template-columns: 2fr repeat(6, 1fr) 2fr;
     grid-template-rows: repeat(2, 1fr);
-    border-radius: 7%;
-    border: 5px solid black;
+    border-radius: 14%;
+    border: 1vmin solid #bc7748;
+    padding: 5vmin;
+    max-width: 100%;
 }
 /* make the header in the center then have it span across the whole middle row */
 button {
     color: black;
     border-radius: 50%;
-    font-size: 800%;
+    font-size: 10vmin;
     background-color: gray;
     border-width: 1vmin;
-    margin: 1vmin;
-    
+    margin: 2vmin;
+    font-family: 'Nunito', sans-serif;
+    width: 15vmin;
+    height: 15vmin;
+    /* convert as much as possible to percentages */
+}
+
+button:hover {
+    border-color: #28c44f;
 }
 
 .p1 {
-    background-color:deeppink;
+    background-color:#ec4141;
+    background-image: linear-gradient(#ec4141, #e87272);
+    border-color: #cf1919;
 }
 
 .p2 {
-    background-color: aqua;
+    background-color: #b0cbe9;
+    background-image: linear-gradient(#cfe3fb, #a5c0de);
+    border-color: #7d94ae;
 }
 
 #p1Mancala {
@@ -55,14 +75,17 @@ button {
     grid-column-end: 8;
     grid-row-start: 1;
     grid-row-end: span 3;
+    width: 20vmin;
+    height: 60vmin;
 }
 
 #p2Mancala {
     grid-column-start: 1;
     grid-column-end: 1;
     grid-row-start: 1;
-    grid-row-end: span 3;
-    
+    grid-row-end: span 3; 
+    width: 20vmin;
+    height: 60vmin;
 }
 
 

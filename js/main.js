@@ -1,11 +1,3 @@
-/*----- constants -----*/
-const COLORS = {
-    "0": "black",
-    "1": "red",
-    "1": "blue",
-}
-//is this necessary?
-
 /*----- state variables -----*/
 let winner, player, board, mancalas, p1Pockets, p2Pockets
 
@@ -28,7 +20,6 @@ function init() {
     board = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,]
     mancalas = [0, 0]
     player = 1
-    turn = 1
     restartButtonEl.style.visibility = "hidden"
     headerEl.innerText = "RED'S TURN"
     render()
@@ -84,9 +75,7 @@ function handleTurn(pocketIdx) {
                 mancalas[1] += board[11 - (pocketIdx + i)]
                 board[11 - (pocketIdx + i)] = 0
             }
-            
         }
-    
     }
     p1Pockets = board.slice(0, 6)
     p2Pockets = board.slice(6)
@@ -116,7 +105,6 @@ function render() {
             }
             i++
         })
-
         if (player === 1) {headerEl.innerText = "RED'S TURN"}
         else headerEl.innerText = "BLUE'S TURN"
     } else {
