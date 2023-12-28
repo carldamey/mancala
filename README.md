@@ -1,17 +1,17 @@
 
-# Mancala
+# MANCALA
 
 This is my submission for the first of four end of unit projects at General Assembly, a browser game.
 
 https://carldamey.github.io/mancala/
 
 
-## Screenshots
+## Screenshots:
 
 ![Screenshots](/screenshots/screenshots.png)
 
 
-## Technologies Used 
+## Technologies Used :
 
 **Languages:** JavaScript, HTML, CSS
 
@@ -19,7 +19,7 @@ https://carldamey.github.io/mancala/
 
 **External:** Git, GitHub
 
-## Rules
+## Rules:
 
 The board is comprised of 2 rows of 6 "pockets" surrounded by two "mancalas", each have a value representing how many "stones" are contained inside, each pocket begins with 4 stones inside, totalling 48, and each mancala begins with 0 stones inside.
 
@@ -32,7 +32,8 @@ If a player's final deposit from their selected pocket is into an empty pocket w
 Play continues, with turns alternating, until either player's pockets each have 0 stones in them. Any remaining stones on the board are subtracted from their pockets and placed in the pockets' controlling player's mancala.
 
 Both mancalas are then compared, whichever player's mancala contains more stones wins, in the event that both mancalas contain an equal number of stones, the game is considered a tie.
-## Upcoming Features
+
+## Upcoming Features:
 
 **Features:**
 * Scoreboard for Consecutive Games
