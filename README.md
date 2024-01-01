@@ -13,11 +13,16 @@ https://carldamey.github.io/mancala/
 
 ## TECHNOLOGIES USED
 
-**Languages:** JavaScript, HTML, CSS
+**Languages:** 
+- JavaScript
+- HTML
+- CSS
 
 **IDE:** VSCodium
 
-**External:** Git, GitHub
+**External:** 
+- Git
+- GitHub
 
 ## RULES
 
