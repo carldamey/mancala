@@ -18,7 +18,9 @@ https://carldamey.github.io/mancala/
 - HTML
 - CSS
 
-**IDE:** VSCodium
+**Software:** 
+- VSCodium
+- Figma
 
 **External:** 
 - Git
