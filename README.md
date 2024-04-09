@@ -1,10 +1,9 @@
 
 # MANCALA
 
-This is my submission for the first of four end of unit projects at General Assembly, a browser game.
+### LIVE SITE: https://carldamey.github.io/mancala/
 
-https://carldamey.github.io/mancala/
-
+This is my submission for the first of four end of unit projects at General Assembly, a browser-based game.
 
 ## SCREENSHOTS
 
